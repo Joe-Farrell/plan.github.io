@@ -1,0 +1,71 @@
+<html>
+<head>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    google.charts.load('current', {'packages':['gantt']});
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+
+      var data = new google.visualization.DataTable();
+      data.addColumn('string', 'Task ID');
+      data.addColumn('string', 'Task Name');
+      data.addColumn('string', 'Resource');
+      data.addColumn('date', 'Start Date');
+      data.addColumn('date', 'End Date');
+      data.addColumn('number', 'Duration');
+      data.addColumn('number', 'Percent Complete');
+      data.addColumn('string', 'Dependencies');
+
+      data.addRows([
+        ['Literature Review', 'Literature Review', 'Research',
+         new Date(2022, 5, 02), new Date(2022, 5, 06), null, 0, null],
+        ['Preliminary Ethics Form', 'Preliminary Ethics Form', 'Ethics',
+         new Date(2022, 5, 01), new Date(2022, 5, 02), null, 0, null],
+        ['Plan', 'Project Plan', 'planning',
+         new Date(2022, 5, 06), new Date(2022, 5, 15), null, 0, null],
+        ['Pre-processing', 'Pre-processing', 'Programming',
+         new Date(2022, 5, 15), new Date(2022, 5, 19), null, 0, null],
+        ['Modelling', 'Model', 'Programming',
+         new Date(2022, 5, 19), new Date(2022, 6, 10), null, 0, null],
+        ['Result', 'Results', 'Programming',
+         new Date(2022, 6, 10), new Date(2022, 6, 14), null, 0, null],
+       ['Introduction', 'Introduction', 'Write Up',
+         new Date(2022, 6, 14), new Date(2022, 6, 17), null, 0, null],
+        ['Literature Review Write', 'Literature Review', 'Write Up',
+         new Date(2022, 6, 17), new Date(2022, 6, 20), null, 0, null],
+        ['Dataset', 'Dataset', 'Write Up',
+         new Date(2022, 6, 20), new Date(2022, 6, 21), null, 0, null],
+        ['Methodology', 'Methodology', 'Write Up',
+         new Date(2022, 6, 21), new Date(2022, 6, 26), null, 0, null],		 
+        ['Results', 'Results and Dicussion', 'Write Up',
+         new Date(2022, 6, 26), new Date(2022, 6, 28), null, 0, null],	
+        ['Conclusion', 'Conclusion', 'Write Up',
+         new Date(2022, 6, 28), new Date(2022, 6, 30), null, 0, null],
+        ['Abstract', 'Abstract', 'Write Up',
+         new Date(2022, 6, 30), new Date(2022, 6, 31), null, 0, null],
+        ['Bibliography', 'Bibliography', 'Write Up',
+         new Date(2022, 6, 31), new Date(2022, 7, 01), null, 0, null],		 
+      ]);
+
+      var options = {
+        height: 800,
+        gantt: {
+          trackHeight: 30
+        }
+      };
+
+      var chart = new google.visualization.Gantt(document.getElementById('chart_div'));
+
+      chart.draw(data, options);
+	  
+	  data
+    }
+
+  </script>
+</head>
+<body>
+  <div id="chart_div"></div>
+  <div id="chart_div2"></div>
+</body>
+</html>
